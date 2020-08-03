@@ -2,28 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Prisma : MonoBehaviour {
-    public GameObject enemy, projectile;
-
-    void Start () {
+public class Prisma : Tower {
+    public GameObject enemy;
+    private void Start()
+    {
+        projectile = GameAssets.i.TowerPiramidProjectile;
 
     }
-
     void Update () {
-        transform.LookAt (enemy.transform);
 
-        if (Timer (1f)) {
-            Instantiate (projectile, transform.position, transform.rotation);
+        if (enemy != null) {
+
+            Shoot(projectile, 3);
         }
-    }
 
-    private float tempo;
-    private bool Timer (float Intervalo) {
-
-        if (tempo < Time.time) {
-            tempo = Time.time + Intervalo;
-            return true;
-        } else return false;
+        enemy = GameObject.FindWithTag ("Inimigo");
 
     }
 }

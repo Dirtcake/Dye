@@ -65,7 +65,14 @@ public class ProjectileMoveScript : MonoBehaviour {
 		}
 	}
 
+	void atingir (GameObject colisor) {
+		IAtingivel atingivel = colisor.GetComponent<IAtingivel> ();
+		if (atingivel != null) atingivel.Dano ();
+	}
+
 	void OnCollisionEnter (Collision co) {
+		atingir (co.gameObject);
+
 		if (co.gameObject.tag != "Bullet" && !collided) {
 			collided = true;
 
