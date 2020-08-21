@@ -43,7 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f07d2dbe6272b419e354770398fbfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teste: Teste realizado com sucesso
   TowerCuboProjectile: {fileID: 0}
   TowerPiramidProjectile: {fileID: 1607489160101874, guid: 731f5ce10c6adab4ba085268d0cfb6e1,
     type: 3}
+  selectedMaterial: {fileID: 2100000, guid: 6774fd292aed0574e93624a79c431445, type: 2}
+  deselectedMaterial: {fileID: 2100000, guid: c9774e0378c545a42adbce60a3905e9d, type: 2}

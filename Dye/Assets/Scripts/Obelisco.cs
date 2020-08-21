@@ -2,26 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obelisco : MonoBehaviour
+public class Obelisco : MonoBehaviour,ISelecionavel
 {
-    public LayerMask layerMask;
+    private Material selectedMaterial;
+    private Material deselectedMaterial;
 
     void Start()
     {
-        
+        selectedMaterial = GameAssets.i.selectedMaterial;
+        deselectedMaterial = GameAssets.i.deselectedMaterial;
     }
 
-    void Update()
+    public void selecao()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            RaycastHit Hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if(Physics.Raycast(ray,out Hit, Mathf.Infinity, layerMask))
-            {
-                //CODE
-                Debug.Log(Hit.collider.name);
-            }
-        }
+        GetComponent<MeshRenderer>().material = selectedMaterial;
+        transform.GetChild(0).gameObject.SetActive(true);
+    }
+
+    public void createTower()
+    {
+        GetComponent<MeshRenderer>().material = deselectedMaterial;
     }
 }

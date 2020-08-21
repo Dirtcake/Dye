@@ -6,6 +6,8 @@ using UnityEngine.Events;
 public class GameStatus : MonoBehaviour {
 
     private int hp, dinheiro, horda;
+
+
     public StringIntEvent OnValuesChange = new StringIntEvent();
 
     public int inicialhp, inicialdinheiro, inicialhorda;

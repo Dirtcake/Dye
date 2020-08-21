@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class ElementosHUD : MonoBehaviour
 {
     public Text hpLabel, hordaLabel, dinheiroLabel;
+    
+    
     public void attUi(string elemento, int value)
     {
 

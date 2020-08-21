@@ -15,10 +15,11 @@ public class GameAssets : MonoBehaviour
     }
 
 
-    public string teste;
-
-
     // PROJÉTEIS 
     public GameObject TowerCuboProjectile;
     public GameObject TowerPiramidProjectile;
+
+    //MATERIAIS
+    public Material selectedMaterial;
+    public Material deselectedMaterial;
 }

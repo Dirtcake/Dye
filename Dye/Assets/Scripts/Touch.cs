@@ -13,6 +13,9 @@ public class Touch : MonoBehaviour
     Vector3 _targetRotation = Vector3.zero;
     Quaternion targetRotation;
 
+    public LayerMask layerMask;
+
+
     private void Awake()
     {
         gesture = GetComponent<PinnedTransformGesture>();
@@ -43,6 +46,17 @@ public class Touch : MonoBehaviour
     private void Update()
     {
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, lerpTime * Time.deltaTime);
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            RaycastHit Hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out Hit, Mathf.Infinity, layerMask))
+            {
+                ISelecionavel interacao = Hit.collider.GetComponent<ISelecionavel>();
+                if (interacao != null) interacao.selecao();
+            }
+        }
 
     }
 

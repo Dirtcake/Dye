@@ -12,5 +12,4 @@ public class Essencials : MonoBehaviour {
         } else return false;
 
     }
-
 }

@@ -5,6 +5,11 @@ public interface IAtingivel {
     void Dano ();
 }
 
+public interface ISelecionavel
+{
+    void selecao(); 
+}
+
 
 [System.Serializable]
 public class OneIntEvent : UnityEvent<int>
