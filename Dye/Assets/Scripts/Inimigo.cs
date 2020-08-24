@@ -10,8 +10,7 @@ public class Inimigo : MonoBehaviour, IAtingivel {
     public int damage = 1;
     public int vida = 3;
 
-
-    private Vector3 destination;
+    public Transform destination;
     private NavMeshAgent agent;
 
     public static OneIntEvent OnEnemyDeath = new OneIntEvent();
@@ -19,14 +18,14 @@ public class Inimigo : MonoBehaviour, IAtingivel {
 
 
     void Start () {
-        agent = GetComponent<NavMeshAgent> ();
-        destination = new Vector3 (15, -6f, 7);
 
-        agent.SetDestination (destination);
+        agent = GetComponent<NavMeshAgent> ();
+        destination = GameObject.FindGameObjectWithTag("Objetivo").GetComponent<Transform>();
+        agent.SetDestination (destination.position);
     }
 
     void Update () {
-        if(Vector3.Distance(transform.position, destination) < 0.5f)
+        if(Vector3.Distance(transform.position, destination.position) < 0.5f)
         {
             OnEnemyPlayerDamage?.Invoke(-damage);
             Destroy(gameObject);

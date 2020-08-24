@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour {
+
     private enum STATE { Idle, spawning }
     private STATE State;
 
@@ -62,7 +63,7 @@ public class Spawner : MonoBehaviour {
         enemyCount = 0;
     }
 }
-
+/*
 /*
 QUANTIDADE -- ok
 TIPO DE INIMIGOS -- 
